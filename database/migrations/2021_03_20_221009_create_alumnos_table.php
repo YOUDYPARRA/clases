@@ -19,10 +19,13 @@ class CreateAlumnosTable extends Migration
             $table->string('nombre');
             $table->string('apellido_materno');
             $table->string('id_grupo')->nullable();
+            $table->string('grupo')->nullable();
+            $table->string('ciclo')->nullable();
             $table->dateTime('fecha_nacimiento')->nullable();
-            $table->string('equipo')->nullable();
+            $table->string('equipo')->nullable();//instituto
             $table->text('observacion')->nullable();
             $table->string('correo');
+            $table->string('bandera');//Alumno, Maestro, Administrativo, Tutor
             $table->softDeletes();
             $table->timestamps();
         });

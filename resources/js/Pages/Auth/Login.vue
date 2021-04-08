@@ -30,7 +30,10 @@
 
             <div class="flex items-center justify-end mt-4">
                 <inertia-link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    Forgot your password?
+                    Recuperar password
+                </inertia-link>
+                <inertia-link :href="route('register')" class="ml-4 text-sm text-gray-700 underline">
+                    Registrate?
                 </inertia-link>
 
                 <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">

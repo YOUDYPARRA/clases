@@ -25,7 +25,7 @@ class AlumnoController extends Controller
         //Log::debug($user->team);
          $team=$user->currentTeam;
           //dd($user->teamRole($t));
-              dd($user->teamPermissions($team));
+            //   dd($user->teamPermissions($team));
             //  dd($user->tokenCan(''));
         
 
@@ -72,6 +72,7 @@ class AlumnoController extends Controller
     {
         //
         // Log::debug('FECHA '.$this->formatDate($request->fecha_nacimiento));
+        Log::debug($request->bandera);
         $request->validate([
             'apellido_paterno'=>'required | min:2',
             'nombre'=>'required',
@@ -80,6 +81,7 @@ class AlumnoController extends Controller
             'fecha_nacimiento'=>'required',
             'equipo'=>'required',
             'observacion'=>'required',
+            'bandera'=>'required',
             'correo'=>'required'
         ]);
         alumnos::create([
@@ -91,6 +93,7 @@ class AlumnoController extends Controller
             'equipo'=>$request->equipo,
             'observacion'=>$request->observacion,
             'correo'=>$request->correo,
+            'bandera'=>$request->bandera,
         ]);
         $alumnos=alumnos::where('id','>',0)->orderBy('id','desc')->get();
         return Inertia::render('Alumnos',['alumnos'=>$alumnos]);
@@ -149,6 +152,7 @@ class AlumnoController extends Controller
         $alumno->equipo=$request->equipo;
         $alumno->observacion=$request->observacion;
         $alumno->correo=$request->correo;
+        $alumno->bandera=$request->bandera;
         $alumno->save();
         return redirect()->back()->with('success_message', 'Yay it worked');
         //return Inertia::render('Alumnos',['alumnos'=>alumnos::where('id','>',0)->orderBy('id','desc')->get()]);//->with('message', 'Post Updated Successfully.');;
