@@ -36,7 +36,7 @@ class AlumnoController extends Controller
         // if($request->user()->cannot('create',alumnos::class)){
         //     abort(403);
         // }
-        $alumnos=alumnos::where('id','>',0)->orderBy('id','desc')->get();
+        
         // if($request->user()->can('view',$alumnos[1])){
         //     abort(403);
         // }
@@ -48,6 +48,7 @@ class AlumnoController extends Controller
         // else{
         //         abort(403);
         //     }
+        $alumnos=$this->obtenAlumnos();
         return Inertia::render('Alumnos',['alumnos'=>$alumnos]);
         
     }
@@ -72,7 +73,7 @@ class AlumnoController extends Controller
     {
         //
         // Log::debug('FECHA '.$this->formatDate($request->fecha_nacimiento));
-        Log::debug($request->bandera);
+        // Log::debug($request->bandera);
         $request->validate([
             'apellido_paterno'=>'required | min:2',
             'nombre'=>'required',
@@ -95,10 +96,8 @@ class AlumnoController extends Controller
             'correo'=>$request->correo,
             'bandera'=>$request->bandera,
         ]);
-        $alumnos=alumnos::where('id','>',0)->orderBy('id','desc')->get();
+        $alumnos=$this->obtenAlumnos();
         return Inertia::render('Alumnos',['alumnos'=>$alumnos]);
-        
-
     }
     
     /**
@@ -132,7 +131,7 @@ class AlumnoController extends Controller
      */
     public function update(Request $request, alumnos $alumno)
     {
-        Log::debug($request->all());
+        // Log::debug($request->all());
         $request->validate([
             'apellido_paterno'=>'required | min:2',
             'nombre'=>'required | min:2',
@@ -143,7 +142,7 @@ class AlumnoController extends Controller
             'observacion'=>'required',
             'correo'=>'required'
         ]);
-         Log::debug('alumno '.$alumno);
+        //  Log::debug('alumno '.$alumno);
         $alumno->apellido_paterno=$request->apellido_paterno;
         $alumno->nombre=$request->nombre;
         $alumno->apellido_materno=$request->apellido_materno;
@@ -186,5 +185,8 @@ class AlumnoController extends Controller
             return $subarr[0].'/'.$arr[1].'/'.$arr[0];
 
         }
+      }
+      private function obtenAlumnos(){
+          return alumnos::where('id','>',0)->where('bandera','Alumno')->orderBy('id','desc')->get();
       }
 }
