@@ -31,6 +31,16 @@
                                     Integrantes
                                 </jet-nav-link>
                             </div>
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <jet-nav-link :href="route('asignaturas.index')" :active="route().current('asignaturas.index')">
+                                    Asignaturas
+                                </jet-nav-link>
+                            </div>
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <jet-nav-link :href="route('grupos.index')" :active="route().current('grupos.index')">
+                                    Grupos
+                                </jet-nav-link>
+                            </div>
 
                         </div>
 
@@ -165,6 +175,16 @@
                     <div class="pt-2 pb-3 space-y-1">
                         <jet-responsive-nav-link :href="route('academicos.index')" :active="route().current('academicos.index')">
                             Integrantes
+                        </jet-responsive-nav-link>
+                    </div>
+                    <div class="pt-2 pb-3 space-y-1">
+                        <jet-responsive-nav-link :href="route('asignaturas.index')" :active="route().current('asignaturas.index')">
+                            Asignaturas
+                        </jet-responsive-nav-link>
+                    </div>
+                    <div class="pt-2 pb-3 space-y-1">
+                        <jet-responsive-nav-link :href="route('grupos.index')" :active="route().current('grupos.index')">
+                            Grupos
                         </jet-responsive-nav-link>
                     </div>
 
