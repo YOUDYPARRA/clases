@@ -15,7 +15,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         //  \App\Models\User::factory(10)->create();
+
         \App\Models\alumnos::factory()->create();
+        // \App\Models\Grupo::factory(3)->create();
+        // \App\Models\Asignatura::factory(3)->create();
+
         // DB::table('alumnos')->insert([
         //     'nombre'=>'nombre',
         //     'apellido_paterno'=>'apellido_paterno',

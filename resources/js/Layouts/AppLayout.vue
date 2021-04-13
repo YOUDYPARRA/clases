@@ -46,6 +46,11 @@
                                     Planeaciones
                                 </jet-nav-link>
                             </div>
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <jet-nav-link :href="route('clases.index')" :active="route().current('clases.index')">
+                                    Clases
+                                </jet-nav-link>
+                            </div>
 
                         </div>
 
@@ -195,6 +200,11 @@
                     <div class="pt-2 pb-3 space-y-1">
                         <jet-responsive-nav-link :href="route('planeaciones.index')" :active="route().current('planeaciones.index')">
                             Planeaciones
+                        </jet-responsive-nav-link>
+                    </div>
+                    <div class="pt-2 pb-3 space-y-1">
+                        <jet-responsive-nav-link :href="route('clases.index')" :active="route().current('clases.index')">
+                            Clases
                         </jet-responsive-nav-link>
                     </div>
 

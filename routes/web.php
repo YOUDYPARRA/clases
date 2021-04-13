@@ -6,6 +6,7 @@ use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\AcademicoController;
 use App\Http\Controllers\AsignaturaController;
 use App\Http\Controllers\GrupoController;
+use App\Http\Controllers\ClaseController;
 use App\Http\Controllers\PlaneacionController;
 use Inertia\Inertia;
 
@@ -42,4 +43,6 @@ Route::resource('asignaturas', AsignaturaController::class)
 Route::resource('grupos', GrupoController::class)
 ->middleware(['auth:sanctum', 'verified']);
 Route::resource('planeaciones', PlaneacionController::class)
+->middleware(['auth:sanctum', 'verified']);
+Route::resource('clases', ClaseController::class)
 ->middleware(['auth:sanctum', 'verified']);
