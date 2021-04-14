@@ -12,11 +12,14 @@ class alumnos extends Model
     protected $fillable=['nombre',
     'apellido_paterno',
     'apellido_materno',
-    'id_grupo',
     'fecha_nacimiento',
     'equipo',
     'observacion',
     'correo',
     'bandera',
-    'id_grupo'];
+];
+    
+    public function scopeNombre($query,$nombre){
+        return $query->where('nombre', 'like', '%'.$nombre.'%');
+    }
 }

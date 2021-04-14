@@ -106,9 +106,21 @@ class AlumnoController extends Controller
      * @param  \App\Models\s  $s
      * @return \Illuminate\Http\Response
      */
-    public function show(alumnos $s)
+    public function show(Request $request)
     {
-        //
+        if(is_numeric($request->nombre)){
+            $alumno=alumnos::findOrFail($request->nombre);
+            // Log::debug($alumnos);
+            Log::debug($alumno);
+            // $a["id":7,"apellido_paterno":"Gonzalo","nombre":"Manuel","apellido_materno":"Ramon"]
+            return Inertia::render('Clases',['id_alumno'=>$alumno]);
+        }else{
+            $alumnos=alumnos::nombre($request->nombre)
+            ->get();
+            Log::debug("Regresa listado de alumnos buscados");
+            return Inertia::render('Clases',['listAlumnos'=>$alumnos]);
+        }
+
     }
     
     /**
