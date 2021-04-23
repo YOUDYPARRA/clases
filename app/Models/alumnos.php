@@ -20,6 +20,8 @@ class alumnos extends Model
 ];
     
     public function scopeNombre($query,$nombre){
-        return $query->where('nombre', 'like', '%'.$nombre.'%');
+        return $query->where('nombre', 'like', '%'.$nombre.'%')
+        ->orWhere('apellido_paterno','like','%'.$nombre.'%')
+        ->orWhere('apellido_materno','like','%'.$nombre.'%');
     }
 }

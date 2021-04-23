@@ -8,6 +8,7 @@ use App\Http\Controllers\AsignaturaController;
 use App\Http\Controllers\GrupoController;
 use App\Http\Controllers\ClaseController;
 use App\Http\Controllers\PlaneacionController;
+use App\Http\Controllers\EnclaseController;
 use Inertia\Inertia;
 
 /*
@@ -45,4 +46,6 @@ Route::resource('grupos', GrupoController::class)
 Route::resource('planeaciones', PlaneacionController::class)
 ->middleware(['auth:sanctum', 'verified']);
 Route::resource('clases', ClaseController::class)
+->middleware(['auth:sanctum', 'verified']);
+Route::resource('enclases', EnclaseController::class)
 ->middleware(['auth:sanctum', 'verified']);

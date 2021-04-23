@@ -33,7 +33,7 @@
                     Recuperar password
                 </inertia-link>
                 <inertia-link :href="route('register')" class="ml-4 text-sm text-gray-700 underline">
-                    Registrate?
+                    Registráte
                 </inertia-link>
 
                 <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
